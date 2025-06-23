@@ -60,3 +60,13 @@ trainer = Seq2SeqTrainer(
 trainer.train()
 model.save_pretrained("multilingual-pi-translate")
 tokenizer.save_pretrained("multilingual-pi-translate")
+
+
+tokenizer.src_lang = "en_XX"
+tokenizer.tgt_lang = "hi_IN"  # Example: English to Hindi
+
+def preprocess_function(example):
+    inputs = tokenizer(example["translation"]["en"], truncation=True, padding="max_length", max_length=128)
+    targets = tokenizer(example["translation"]["hi"], truncation=True, padding="max_length", max_length=128)
+    
+
