@@ -4,3 +4,6 @@ peft
 accelerate
 sentencepiece
 torch
+gradio
+sentencepiece
+
